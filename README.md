@@ -9,6 +9,7 @@ TechCare Baby Safe, an IoT solution to improve security and access to neonates, 
 * [Thundercomm AI Kit Setup](#thundercomm-ai-kit-setup)
 * [Arduino Setup](#arduino-setup)
 * [Raspberry Setup](#raspberry-setup)
+* [The Final Lock Module](#the-final-lock-module)
 * [Results](#results)
 * [Future Rollout](#future-rollout)
 * [References](#references)
@@ -56,6 +57,8 @@ DOKI
 2.2 El diagrama de conexiones sera el siguiente.
 
 <img src="https://i.ibb.co/HrWPxDc/Esquema1.png"> 
+
+https://i.ibb.co/YXzHxXT/IMG-9887.jpg
 
 ## Raspberry Setup:
 
@@ -170,6 +173,14 @@ In order for the program to start together with raspbian, and for us to no longe
 
 3.11. Once we have finished editing this file, we are ready to connect everything.
 Before proceeding, disconnect the raspberry and the arduino from their sources because we are going to connect them to each other.
+
+## The Final Lock Module:
+
+El dispositivo final una vez combinando la raspberry y el arduino quedaron de la siguiente manera.
+
+<img src="https://i.ibb.co/YXzHxXT/IMG-9887.jpg"> 
+
+- Se puede ver que tiene dos powerbanks para ser las fuentes de poder de el dispositivo y asi poderlo hacer inalambrico, en el caso de un hospital ya estaria integrado para tener una alimentacion directa del hospital.
 
 ## Results:
 

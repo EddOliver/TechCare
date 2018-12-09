@@ -28,6 +28,7 @@ Bill of materials.
 - Raspberry Pi Zero w.
 - Arudino Uno.
 - Servo Motor MG995.
+- Numeric Keyboard.
 
 Optional:
 - Solenoid Electrolock.

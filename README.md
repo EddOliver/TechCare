@@ -36,7 +36,11 @@ Software:
 
 ## Thundercomm AI Kit Setup:
 
+DOKI
+
 ## Raspberry Setup:
+
+
 
 ## Results:
 

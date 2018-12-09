@@ -26,9 +26,14 @@ Nuestra solucion se basa en el reconocimiento facial del personal de enfermeria 
 Bill of materials.
 - Thundercomm AI Kit.
 - Raspberry Pi Zero w.
+- Arudino Uno.
+- Servo Motor MG995.
+
+Optional:
 - Solenoid Electrolock.
 - Darlington Transistor.
 - 10k Resistor.
+- 2 Power Banks. 5v 10000mAh.
 
 Software:
 - Python.
@@ -41,7 +46,15 @@ DOKI
 
 ## Arduino Setup:
 
-2. Para la configuracion del Arduino solo tenemos que conectar nuestro Servo a nuestro arduino en el pin 10 como lo pusimos en nuestro cogido en la carpeta ArduinoSoft
+2. Para la configuracion del Arduino solo tenemos que conectar nuestro Servo a nuestro arduino en el pin 10 como lo pusimos en nuestro cogido en la carpeta ArduinoSoft.
+
+2.1 La cerradura con el servo se hizo a mano de la siguiente forma.
+
+<img src="https://i.ibb.co/302CPJ5/IMG-9877.jpg"> 
+
+2.2 El diagrama de conexiones sera el siguiente.
+
+<img src="https://i.ibb.co/HrWPxDc/Esquema1.png"> 
 
 ## Raspberry Setup:
 

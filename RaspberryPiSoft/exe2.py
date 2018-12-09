@@ -10,11 +10,11 @@ i=0
 
 try:
   options = {
-    "org": "lhnt68",
-    "id": "MyID1",
+    "org": "YOUR_ORG",
+    "id": "ANY_ID",
     "auth-method": "apikey",
-    "auth-key": "a-lhnt68-dtaz5sgn7q",
-    "auth-token": "@(FPccvHSVRYENAOZc",
+    "auth-key": "YOUR_KEY",
+    "auth-token": "YOUR_TOKEN",
     "clean-session": 1
   }
   clients = ibmiotf.application.Client(options)
@@ -32,7 +32,7 @@ def myEventCallback(event):
       if (event.event == "open" and event.device =="Tech:001"):
           print("YES")
           GPIO.output(18,GPIO.HIGH)
-          time.sleep(10)
+          time.sleep(5)
           GPIO.output(18,GPIO.LOW) 
 
 clients.connect()

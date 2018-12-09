@@ -143,9 +143,7 @@ Host: RASPBERRYIP              Username:pi           Password:raspberry         
 
 - In the Raspberry's terminal we will write the following command.
      
-    sudo nano exe2.py
-
-<img src="https://i.ibb.co/JCpSFDJ/terminalcomand.png">
+        sudo nano exe2.py
 
 - The command will open the text editor where we can go through the file "exe2.py".
 

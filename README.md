@@ -194,4 +194,9 @@ Video: Click on the image
 - The AI Kit is quite powerful and we have to delve even deeper in its capabilities.
 - Deployment in a clinical situation.
 
+Known issues and thoughts
+
+- Face recognition via OpenCV is not that accurate, we have to work on that.
+- Have to train a model much more, perhaps processing the image on Edge and then use a service like Rekognition from AWS or IBM recognition would be in order. 
+
 ## References:

@@ -186,4 +186,8 @@ El dispositivo final una vez combinando la raspberry y el arduino quedaron de la
 
 ## Future Rollout
 
+- We will recommend to adapt a webcamera or another usb camera to the thundersoft as its camera is only 8M pixels and not that powerful.
+- The AI Kit is quite powerful and we have to delve even deeper in its capabilities.
+- Deployment in a clinical situation.
+
 ## References:

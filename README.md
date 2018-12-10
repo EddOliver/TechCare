@@ -58,8 +58,6 @@ DOKI
 
 <img src="https://i.ibb.co/HrWPxDc/Esquema1.png"> 
 
-https://i.ibb.co/YXzHxXT/IMG-9887.jpg
-
 ## Raspberry Setup:
 
 3. For this point, it's also possible to use an Electronic Lock, RaspberryPi Zero w and TCP120, instead of our Servo lock with Arduino and Raspberry Pi connecting it through MQTT.

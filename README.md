@@ -1,6 +1,6 @@
 # TechCare
-TechCare Baby Safe, an IoT solution to improve security and access to neonates, with Face recognition using Thundercomm's AI kit
 
+TechCare Baby Safe, an IoT solution to improve security and access to neonates, with Face recognition using Thundercomm's AI kit
 
 # Table of contents
 * [Introduction](#introduction)
@@ -41,6 +41,7 @@ Software:
 - Python.
 - Watson IoT Platform.
 - Raspbian.
+- Android Studio
 
 ## Thundercomm AI Kit Setup:
 

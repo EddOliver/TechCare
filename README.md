@@ -182,6 +182,8 @@ El dispositivo final una vez combinando la raspberry y el arduino quedaron de la
 
 - Se puede ver que tiene dos powerbanks para ser las fuentes de poder de el dispositivo y asi poderlo hacer inalambrico, en el caso de un hospital ya estaria integrado para tener una alimentacion directa del hospital.
 
+[![Tech Lock Demo Tech](https://img.freepik.com/free-vector/locker_53876-25496.jpg?size=338&ext=jpg)](https://www.youtube.com/watch?v=nQ5k8VPnbZA&feature=youtu.be)
+
 ## Results:
 
 ## Future Rollout

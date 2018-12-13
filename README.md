@@ -1,4 +1,4 @@
-# TechCare
+# TechCare  <img src="https://hackster.imgix.net/uploads/attachments/686274/logo_fDNQyJwLoY.jpg?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 TechCare Baby Safe, an IoT solution to improve security and access to neonates, with Face recognition using Thundercomm's AI kit
 <img src="https://hackster.imgix.net/uploads/attachments/686206/techcare_m01IlSQOOe.jpg?auto=compress%2Cformat&w=900&h=675&fit=min">
@@ -65,17 +65,128 @@ Software:
 
 ## Thundercomm AI Kit Setup:
 
-DOKI
+Thundercomm AI Kit Setup:
+This is quite easy to do, the Thundercomm by itself is an amazing piece of hardware that runs natively on Android. So imagine that you are using an Android phone.
+
+<img src= "https://hackster.imgix.net/uploads/attachments/686280/image_9BTYGSCpUb.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
+First connect it to the wall via the cable provided, and we recommend that you connect a keyboard, mouse and a monitor via its micro HDMI port. If you want to start press the power button for 5 to 6 seconds and release just as you would be turning on a phone.
+
+## Android Studio Setup :
+
+In short, what we will be doing here is; setting up Android Studio for OpenCV (little documentation online), setting up FaceSDK (we only have Thundercomm's documentation) and we are going to heavily steal from the official documentation, but will try to condense it a little. Finnaly, we will setup MQTT for Android Studio so you can send messages to your favorite broker (we are using IBM Watson IoT).
+
+You need the following, unzip them and install them:
+
+Android Studio (get the newest version):
+
+https://developer.android.com/studio/
+
+OpenCV for Android:
+
+https://opencv.org/
+
+Android NDK
+
+https://developer.android.com/ndk/
+
+FaceSDK
+
+http://www.45smart.com/app/download
+
+Now comes the long part as we have to setup Android Studio to work with OpenCV.
+<img src="https://hackster.imgix.net/uploads/attachments/686294/image_msC7ydlCIz.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
+-Import OpenCV module
+
+Go to File-> new -> Import Module...
+
+Then we select the directory like so:
+
+<img src= "https://hackster.imgix.net/uploads/attachments/686297/image_LMC7YCkFud.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
+You'll have some errors so open the app build gradle and the OpenCV library build gradle and alter them so that the OpenCV gradle will have the same versions as the app gradle. (IMPORTANT)
+Sync Now (should work), if you have any other errors erase the ones caused by your manifest file as you have one of the newest versions of AS.
+Then you have to add the dependency:
+
+<img src= "https://hackster.imgix.net/uploads/attachments/686301/image_esi2norfgE.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
+Then you have to go to app->JNI folder and rename it to jniLibs.
+
+Then paste inside the copied archives.
+
+Go to your gradle properties file and paste the following:
+
+android.deprecatedNdk=true
+
+-When you compile this, you will get a warning so you can add the new number which will be a lease. (this will be altered in the near future but works for now).
+
+Make sure your ndk path is correct in the local properties tab.
+
+And that's the end of the setup!
+
+Try this code in the MainActivity.java file inside the OnCreate object:
+
+if(OpenCVLoader.initDebug())
+{
+Toast.makeText(getApplicationContext(), "OpenCV loaded correctly", Toast.LENGTH_SHORT).show();
+}
+else{
+Toast.makeText(getApplicationContext(), "Nope, fail", Toast.LENGTH_SHORT).show();
+}
+
+Then Run it in your favourite emulator or device and it should work!
+
+After this you can check on the code provided to run an application example or run the samples provided both by Thundercomm and OpenCV.
+
+## Face SDK Setup
+1. Do all the steps above as it will not work without a stable version of OpenCV in Android Studio..
+
+2. Deploy Face SDK
+
+If you have Git or linux follow suit, if you are using windows then; mkdir= make a folder, cp = copy, and FaceSDKSamplePATH= the directory of your Face SDK.
+
+$mkdir -p (FaceSDKSamplePATH)/app/src/main/cpp/thirdparty/face_sdk_include/
+
+$cp face_sdk_android/lib/* (FaceSDKSample PATH)/app/src/main/jniLibs/
+
+$cp face_sdk_android/include/* (FaceSDKSamplePATH)/app/src/main/cpp/thirdparty/face_sdk_include/
+
+## MQTT setup for Android Studio
+The code provided contains the main aspects that you can follow on to connect into any MQTT provider. We are using the Eclipse Paho library and service for the communication.
+
+Debug by creating a button in your XML file, you can always call it via pub which is our publish.
+Remember to setup everything including topic and follow the way it is indicated in the code.
+Add the following code in the dependencies part of the app build gradle:
+compile('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {    exclude module: 'support-v4'}
+-Add this also but by itself in the app build gradle:
+
+repositories {    maven {        url "https://repo.eclipse.org/content/repositories/paho-releases/"    }}
+Remember that the Android manifest file should have all the permissions as shown in the manifest code.
+
+## Android development in general
+What you have in the code below is our mutant from these three setups. Now you have two ways to proceed on your development, our current solution uses a combination of our own harvest and the Face SDK setup as we had to combine it with MQTT, OpenCV and other dependencies. The current solutions are very heavily dependant on OpenCV, if you have followed this guide, the sky is the limit. Hopefully the Android setup for OpenCV can help anyone that wants to continue developing on these platforms and is not an expert, as most of the information is scattered accross the web.
+
+What we are doing here is using OpenCV to provide a face recognition, send the result via MQTT to the IBM Watson IoT broker. Then we are listening to the topic on python via the Raspberry pi Zero and then, actuating the Smart-Lock to give access or deny it.
+
+We borrowed heavily from sources such as:
+
+https://github.com/egomez99/OPENCV_FaceDetection/blob/master/app/src/main/java/com/derzapp/myfacedetection/MainActivity.java
+
+https://jayrambhia.com/blog/android-opencv-facedetection
+
+Smart-lock Setup:
+For this we are using an Arduino uno with a motor shield and a raspberry pi Zero. We strongly reccomend to follow the ideal Bill of Materials for a more potent solution as we DIYed everything with materials at hand.
 
 ## Arduino Setup:
 
-2. Para la configuracion del Arduino solo tenemos que conectar nuestro Servo a nuestro arduino en el pin 10 como lo pusimos en nuestro cogido en la carpeta ArduinoSoft.
+2. For the Arduino configuration we just have to connect our servo to pin 10 like in the diagram and flash the code provided. The code really just moves the servo from one position to the next 90 degrees.
 
-2.1 La cerradura con el servo se hizo a mano de la siguiente forma.
+2.1 The Smart-lock was made by ourselves from scratch as you can see in the image, a black 3D printed case was used, and an old doorlock.
 
 <img src="https://i.ibb.co/302CPJ5/IMG-9877.jpg"> 
 
-2.2 El diagrama de conexiones sera el siguiente.
+2.2 Connect as the following diagram:
 
 <img src="https://i.ibb.co/HrWPxDc/Esquema1.png"> 
 
@@ -195,27 +306,60 @@ Before proceeding, disconnect the raspberry and the arduino from their sources b
 
 ## The Final Lock Module:
 
-El dispositivo final una vez combinando la raspberry y el arduino quedaron de la siguiente manera.
+After doing all this, and assembling, we will have a Smart-Lock like so:
 
 <img src="https://i.ibb.co/YXzHxXT/IMG-9887.jpg"> 
 
-- Se puede ver que tiene dos powerbanks para ser las fuentes de poder de el dispositivo y asi poderlo hacer inalambrico, en el caso de un hospital ya estaria integrado para tener una alimentacion directa del hospital.
+For convenience we are now using batteries (two powerbanks) but a Lock system has to always, and I repeat, always be pluged to the wall, and more in a hospital setting as a Hospital has to have an emergency power supply.
 
 Video: Click on the image
 
 [![Tech Lock Demo Tech](https://img.freepik.com/free-vector/locker_53876-25496.jpg?size=338&ext=jpg)](https://www.youtube.com/watch?v=nQ5k8VPnbZA&feature=youtu.be)
 
-## Results:
+## Combining them together
+As you can see now we have a smart lock that works via MQTT and an Android OpenCV mutant that does the same.
+
+In order to open the door, then a 2-Factor authentication must be met, improving security by a long margin.
+
+## Showcase
+Here is the demo video of everything working together!
+
+[![Tech Lock Demo Tech](https://img.freepik.com/free-vector/locker_53876-25496.jpg?size=338&ext=jpg)](https://www.youtube.com/watch?time_continue=115&v=bJGoDKyP2c4)
+
+## Conclusion
+The new Baby Safe, is a device that could help fix this huge problem that the world is facing right now, while you are reading this, hundreds of babies around the world are being stolen from their families and lost the opportunity of being children.
+
+This Baby Safe is a Lock for maternity areas, in which only the mother and authorized medical personnel can get access to babies. By introducing 2-Factor authentication based on hardware, the vision of smart hospitals is closer. A Hospital should the place where you seek to improve your life quality and your health. What is happening to those babies is the opposite.
 
 ## Future Rollout
-
-- We will recommend to adapt a webcamera or another usb camera to the thundersoft as its camera is only 8M pixels and not that powerful.
-- The AI Kit is quite powerful and we have to delve even deeper in its capabilities.
-- Deployment in a clinical situation.
-
+We will recommend adapting a webcamera or another usb camera to the thundersoft as its camera is only 8M pixels and not that powerful.
+The AI Kit is quite powerful and we have to delve even deeper in its capabilities.
+Deployment in a clinical situation.
+Add it to a database in order to increase the value substantially, that way we can track entries and exits.
+Expand platform to include RFID baby tags so we can have a much more potent solution.
 Known issues and thoughts
 
-- Face recognition via OpenCV is not that accurate, we have to work on that.
-- Have to train a model much more, perhaps processing the image on Edge and then use a service like Rekognition from AWS or IBM recognition would be in order. 
+Face recognition via OpenCV is not that accurate, we have to work on that.
+Have to train a model much more, perhaps processing the image on Edge and then use a service like Rekognition from AWS or IBM recognition would be in order. 
 
 ## References:
+
+https://github.com/egomez99/OPENCV_FaceDetection/blob/master/app/src/main/java/com/derzapp/myfacedetection/MainActivity.java
+
+https://jayrambhia.com/blog/android-opencv-facedetection
+
+https://www.hivemq.com/blog/mqtt-client-library-enyclopedia-paho-android-service
+
+https://github.com/opencv/opencv/blob/master/samples/android/face-detection/src/org/opencv/samples/facedetect/FdActivity.java
+
+https://android.jlelse.eu/a-beginners-guide-to-setting-up-opencv-android-library-on-android-studio-19794e220f3c
+
+http://www.45smart.com/app/index
+
+https://www.bbc.com/news/blogs-trending-35383319
+
+https://www.csmonitor.com/1994/0630/30061.html
+
+https://stackoverflow.com/questions/49669225/android-opencv-face-recognition
+
+https://github.com/abhn/marvel

@@ -1,6 +1,8 @@
 # TechCare
 
 TechCare Baby Safe, an IoT solution to improve security and access to neonates, with Face recognition using Thundercomm's AI kit
+<img src="https://hackster.imgix.net/uploads/attachments/686206/techcare_m01IlSQOOe.jpg?auto=compress%2Cformat&w=900&h=675&fit=min">
+
 
 # Table of contents
 * [Introduction](#introduction)
@@ -14,9 +16,27 @@ TechCare Baby Safe, an IoT solution to improve security and access to neonates, 
 * [Future Rollout](#future-rollout)
 * [References](#references)
 
-## Introduction:
 
 ## Problematic:
+
+According to the BBC, chinese police reports that 20,000 babies were stolen yearly in China. But this number might be 10 times bigger, because of the lack of information. In China a baby girl can be sold for 8,000 US dollars, meanwhile a baby boy is twice the price.
+
+Most of them disappear, but some others are sold or used as work slaves.
+
+https://www.bbc.com/news/blogs-trending-35383319
+
+In Mexico the number is not that high, but in the latest 9 years that number reaches 25 358 according to Registro Nacional de Personas desaparecidas, being 2017 the year with more kids kidnaped. 70% of that number were babies between 0 and 5 years.
+
+https://www.imagenradio.com.mx/un-delito-que-crece-en-mexico-el-robo-de-ninos-y-su-desaparicion
+
+https://www.csmonitor.com/1994/0630/30061.html
+
+<img src= "https://hackster.imgix.net/uploads/attachments/686210/pasted_image_0.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
+This is a huge problem all around the world, first because of the lack information. Authorities (talking about statistics) do not show the whole information, and also Medical providers are not aware of the problem they are facing. The System used nowadays is just a door with a lock, the most secure hospitals having an RFID control, and the ones that do not have anything, barely have a door handle.
+
+What we know for sure, is that this number of missing babies can be reduced drastically, helping families and saving those lives.
+<img src= "https://hackster.imgix.net/uploads/attachments/686213/pasted_image_0.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 ## Our Solution:
 
